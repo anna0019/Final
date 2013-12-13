@@ -21,6 +21,7 @@
 #include "../UI/UISideMenu.h"
 
 
+class UIFont;
 
 class mycomparison {
 public: 
@@ -98,6 +99,8 @@ public:
 	void addEnemyUnit(Unit *unit);
 	Tile *getPlayerTile();
 
+	int lives;
+	int score;
 
 protected:
 	//Disables the old tiles selection (if ground tile) and
@@ -123,9 +126,11 @@ private:
 	void sideMenuButtonAction(UISideMenu* sideMenu, UIButton* button, int buttonIndex);
 	void sideMenuToggleAction(UISideMenu* sideMenu, UIToggle* toggle, int toggleIndex);
 
-
+	UIFont* m_Font;
+	UIFont* m_Font2;
 	UISideMenu* m_TilesMenu;
 	UISideMenu* m_CommandMenu;
+
 };
 
 #endif

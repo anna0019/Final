@@ -349,6 +349,9 @@
     <ClCompile Include="..\..\Common\Game\Tiles\TowerTile.cpp">
       <Filter>Source Files\Game\Tiles</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Common\UI\UIFont.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLWindow.h">
@@ -617,6 +620,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Common\Game\Tiles\TowerTile.h">
       <Filter>Source Files\Game\Tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\UI\UIFont.h">
+      <Filter>Source Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

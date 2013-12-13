@@ -30,6 +30,7 @@
 #include "../Libraries/jsoncpp/json.h"
 #include "../Path/FastPathFinder.h"
 #include "EnemyUnit.h"
+#include "../UI/UIFont.h"
 
 class EnemyUnit;
 //class Player player;
@@ -48,6 +49,12 @@ m_HorizontalTiles(0),
 	m_PaintTileIndexes(false),
 	m_PaintBradPathScoring(false)
 {
+	m_Font = new UIFont("BitmapFont");
+	m_Font2 = new UIFont("BitmapFont");
+
+	lives = 3;
+	score = 0000;
+
 	//Create the player object
 	if(isEditingLevel == false || true)
 	{
@@ -87,6 +94,18 @@ m_HorizontalTiles(0),
 
 Level::~Level()
 {
+	if(m_Font != NULL)
+	{
+		delete m_Font;
+		m_Font = NULL;
+	}
+
+	if(m_Font2 != NULL)
+	{
+		delete m_Font2;
+		m_Font2 = NULL;
+	}
+
 	if(m_TilesMenu != NULL)
 	{
 		delete m_TilesMenu;
@@ -203,6 +222,14 @@ void Level::paint()
 			}
 		}
 
+	}
+	if(m_Font != NULL)
+	{
+		m_Font->draw(400.0f, 100.0f);
+	}
+	if(m_Font2 != NULL)
+	{
+		m_Font2->draw(400.0f, 200.0f);
 	}
 
 	if(m_TilesMenu != NULL)
@@ -346,10 +373,13 @@ void Level::keyUpEvent(int keyCode)
 	{
 		if(m_TilesMenu != NULL)
 		{
+		
+			m_Font->setText("Life 3" /*+ lives*/);
 			m_TilesMenu->isShowing() == true ? m_TilesMenu->hide() : m_TilesMenu->show();
 		}
 		if(m_CommandMenu != NULL)
 		{
+			m_Font2->setText("Score 0000" /*+ score*/);
 			m_CommandMenu->isShowing() == true ? m_CommandMenu->hide() : m_CommandMenu->show();
 		}
 	}
