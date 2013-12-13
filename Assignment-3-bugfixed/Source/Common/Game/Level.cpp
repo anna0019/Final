@@ -225,11 +225,14 @@ void Level::paint()
 	}
 	if(m_Font != NULL)
 	{
-		m_Font->draw(400.0f, 100.0f);
+		m_Font->draw(300.0f, 100.0f);
+		m_Font->setText("3 Life" /*+ lives*/);
 	}
 	if(m_Font2 != NULL)
 	{
-		m_Font2->draw(400.0f, 200.0f);
+		m_Font2->draw(300.0f, 200.0f);
+		m_Font2->setText("0000 Score" /*+ score*/);
+
 	}
 
 	if(m_TilesMenu != NULL)
@@ -373,13 +376,10 @@ void Level::keyUpEvent(int keyCode)
 	{
 		if(m_TilesMenu != NULL)
 		{
-		
-			m_Font->setText("Life 3" /*+ lives*/);
 			m_TilesMenu->isShowing() == true ? m_TilesMenu->hide() : m_TilesMenu->show();
 		}
 		if(m_CommandMenu != NULL)
 		{
-			m_Font2->setText("Score 0000" /*+ score*/);
 			m_CommandMenu->isShowing() == true ? m_CommandMenu->hide() : m_CommandMenu->show();
 		}
 	}
@@ -398,6 +398,10 @@ void Level::keyUpEvent(int keyCode)
 	else if(keyCode == KEYCODE_P)
 	{
 		ScreenManager::getInstance()->switchScreen(PAUSE_SCREEN_NAME);
+	}
+	else if(keyCode == KEYCODE_W)
+	{
+		ScreenManager::getInstance()->switchScreen(WIN_SCREEN_NAME);
 	}
 }
 
